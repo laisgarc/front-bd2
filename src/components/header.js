@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import { LinkContainer } from 'react-router-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
 class Header extends React.Component {
   render() {
@@ -18,6 +19,14 @@ class Header extends React.Component {
               <LinkContainer to="/secoes">
                 <Nav.Link>Seções</Nav.Link>
               </LinkContainer>
+              <NavDropdown title="Promoções" id="basic-nav-dropdown">
+                <LinkContainer to="/novapromocao">
+                  <NavDropdown.Item>Nova Promoção</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/listarpromos">
+                  <NavDropdown.Item>Listar Promoções</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
