@@ -16,7 +16,7 @@ class NovaPromocao extends Component {
 
   sendPromo = (e) => {
     e.preventDefault();
-    api.post("/promocao", {
+    api.post("/insert/promocao", {
       porcentagem: this.state.valor,
       secaoId: this.state.id
     }).then((response) =>

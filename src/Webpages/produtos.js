@@ -13,7 +13,6 @@ const Produtos = () => {
     return new URLSearchParams(useLocation().search);
   }
 
-  let promoAtiva = [];
   let secao = useQuery();
   let secaoID = secao.get("secao");
   const [produtos, setProdutos] = useState(null);
@@ -28,17 +27,15 @@ const Produtos = () => {
       });
   }, []);
 
-  function insertPromo(promo){
-    if(promo.secao_id === parseInt(secaoID)){
-      setPromos(promos => [...promos, promo])
-    }
-  }
-
   useEffect(() => {
     api
       .get("/promocao")
       .then((response) => {
-        response.data.map(promo =>insertPromo(promo))
+        response.data.forEach((promo) => {
+          if(promo.secao_id === parseInt(secaoID)){
+            setPromos(promos => [...promos, promo])
+          }
+        })
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
