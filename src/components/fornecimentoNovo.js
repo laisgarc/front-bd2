@@ -98,7 +98,6 @@ class ModalFornecimento extends React.Component {
   render() {
     return(
       <Modal show={this.props.show} onHide={this.props.handleClose}>
-        {}
         <Modal.Header closeButton>
             <Modal.Title>Novo fornecimento</Modal.Title>
         </Modal.Header>

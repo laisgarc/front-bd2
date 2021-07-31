@@ -32,6 +32,22 @@ class Header extends React.Component {
                   <NavDropdown.Item>Listar Promoções</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
+              <NavDropdown title="Funcionários" id="basic-nav-dropdown">
+                <LinkContainer to="/funcionarios">
+                  <NavDropdown.Item>Listar Funcionários</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/novofuncionario">
+                  <NavDropdown.Item>Novo funcionário</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+              <NavDropdown title="Vendas" id="basic-nav-dropdown">
+                <LinkContainer to="/vendas">
+                  <NavDropdown.Item>Listar Vendas</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/venda/1">
+                  <NavDropdown.Item>Nova Venda</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>

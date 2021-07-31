@@ -11,25 +11,30 @@ import Row from 'react-bootstrap/Row'
 
 const ListarPromocao = () => {
 
-  function delPromo(id) {
-    api.delete("/promocao/"+id
-    )
-    .then((response) => {console.log("Deletado!")})
-    .catch((err) => {
-      console.error("ops! ocorreu um erro" + err);
-    })
-  }
-
   const [promos, setPromos] = useState(null);
 
-  useEffect(() => {
+  const fetchPromo = () => {
     api
-      .get("/promocao")
+      .get('/promocao')
       .then((response) => setPromos(response.data))
       .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
+        console.error('ops! ocorreu um erro' + err);
       });
-  }, [promos]);
+  };
+
+  useEffect(fetchPromo, []);
+  
+
+  const delPromo = (id) => {
+    api
+      .delete('/promocao/' + id)
+      .then(() => {
+        fetchPromo();
+      })
+      .catch((err) => {
+        console.error('ops! ocorreu um erro' + err);
+      });
+  };
 
   if (!promos) return null;
 
